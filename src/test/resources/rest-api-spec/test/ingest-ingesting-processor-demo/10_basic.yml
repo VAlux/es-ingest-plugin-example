@@ -1,0 +1,11 @@
+"ingest-ingesting-processor-demo plugin installed":
+    - do:
+        cluster.state: {}
+
+    - set: {master_node: master}
+
+    - do:
+        nodes.info: {}
+
+    - match:  { nodes.$master.plugins.0.name: ingest-ingesting-processor-demo }
+    - match:  { nodes.$master.ingest.processors.0.type: ingesting_processor_demo }
