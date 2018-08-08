@@ -15,7 +15,7 @@
  *
  */
 
-package org.elasticsearch.plugin.ingest.ingesting.processor.demo;
+package org.elasticsearch.plugin.ingest.processor.demo;
 
 import org.elasticsearch.common.collect.MapBuilder;
 import org.elasticsearch.common.settings.Setting;
@@ -27,7 +27,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class IngestIngestingProcessorDemoPlugin extends Plugin implements IngestPlugin {
+public class IngestProcessorDemoPlugin extends Plugin implements IngestPlugin {
 
   private static final Setting<String> SETTINGS =
       new Setting<>("ingest.ingesting-processor-demo.setting",
@@ -42,7 +42,7 @@ public class IngestIngestingProcessorDemoPlugin extends Plugin implements Ingest
   @Override
   public Map<String, Processor.Factory> getProcessors(Processor.Parameters parameters) {
     return MapBuilder.<String, Processor.Factory>newMapBuilder()
-        .put(IngestingProcessorDemoProcessor.TYPE, new IngestingProcessorDemoProcessor.Factory())
+        .put(IngestingProcessorDemo.TYPE, new IngestingProcessorDemo.Factory())
         .immutableMap();
   }
 

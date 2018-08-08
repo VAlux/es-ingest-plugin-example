@@ -15,7 +15,7 @@
  *
  */
 
-package org.elasticsearch.plugin.ingest.ingesting.processor.demo;
+package org.elasticsearch.plugin.ingest.processor.demo;
 
 import org.elasticsearch.ingest.AbstractProcessor;
 import org.elasticsearch.ingest.IngestDocument;
@@ -26,14 +26,14 @@ import java.util.Map;
 
 import static org.elasticsearch.ingest.ConfigurationUtils.readStringProperty;
 
-public class IngestingProcessorDemoProcessor extends AbstractProcessor {
+public class IngestingProcessorDemo extends AbstractProcessor {
 
   public static final String TYPE = "ingesting_processor_demo";
 
   private final String field;
   private final String targetField;
 
-  public IngestingProcessorDemoProcessor(String tag, String sourceField, String targetField) {
+  public IngestingProcessorDemo(String tag, String sourceField, String targetField) {
     super(tag);
     this.field = sourceField;
     this.targetField = targetField;
@@ -54,9 +54,9 @@ public class IngestingProcessorDemoProcessor extends AbstractProcessor {
   public static final class Factory implements Processor.Factory {
 
     @Override
-    public IngestingProcessorDemoProcessor create(Map<String, Processor.Factory> factories,
-                                                  String tag,
-                                                  Map<String, Object> config) {
+    public IngestingProcessorDemo create(Map<String, Processor.Factory> factories,
+                                         String tag,
+                                         Map<String, Object> config) {
 
       String field = readStringProperty(TYPE, tag, config, "field");
       String targetField = readStringProperty(
@@ -66,7 +66,7 @@ public class IngestingProcessorDemoProcessor extends AbstractProcessor {
           "target_field",
           "default_field_name");
 
-      return new IngestingProcessorDemoProcessor(tag, field, targetField);
+      return new IngestingProcessorDemo(tag, field, targetField);
     }
   }
 }

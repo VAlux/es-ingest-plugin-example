@@ -15,7 +15,7 @@
  *
  */
 
-package org.elasticsearch.plugin.ingest.ingesting.processor.demo;
+package org.elasticsearch.plugin.ingest.processor.demo;
 
 import com.carrotsearch.randomizedtesting.annotations.Name;
 import com.carrotsearch.randomizedtesting.annotations.ParametersFactory;

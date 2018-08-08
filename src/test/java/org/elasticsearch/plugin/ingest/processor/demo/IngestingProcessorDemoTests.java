@@ -1,5 +1,5 @@
 /*
- * Copyright [2017] [Oleksandr]
+ * Copyright [2018] [Oleksandr Voievodin]
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  *
  */
 
-package org.elasticsearch.plugin.ingest.ingesting.processor.demo;
+package org.elasticsearch.plugin.ingest.processor.demo;
 
 import org.elasticsearch.ingest.IngestDocument;
 import org.elasticsearch.ingest.RandomDocumentPicks;
@@ -27,15 +27,15 @@ import java.util.Map;
 import static org.hamcrest.Matchers.hasKey;
 import static org.hamcrest.Matchers.is;
 
-public class IngestingProcessorDemoProcessorTests extends ESTestCase {
+public class IngestingProcessorDemoTests extends ESTestCase {
 
   public void testThatProcessorWorks() {
     Map<String, Object> document = new HashMap<>();
     document.put("source_field", "fancy source field content");
     IngestDocument ingestDocument = RandomDocumentPicks.randomIngestDocument(random(), document);
 
-    IngestingProcessorDemoProcessor processor =
-        new IngestingProcessorDemoProcessor(randomAlphaOfLength(10),
+    IngestingProcessorDemo processor =
+        new IngestingProcessorDemo(randomAlphaOfLength(10),
             "source_field",
             "target_field");
 
